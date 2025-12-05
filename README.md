@@ -5,7 +5,7 @@
 ---
 
 ### Overview
-Your mission is create either:
+Your mission is create either: Conway's game of life. 
 - Life-like cellular automata [life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life), [life-like](https://en.wikipedia.org/wiki/Life-like_cellular_automaton), [demo](https://www.netlogoweb.org/launch#https://www.netlogoweb.org/assets/modelslib/Sample%20Models/Computer%20Science/Cellular%20Automata/Life.nlogo).
 - Breakout/Arkanoid [demo 0](https://elgoog.im/breakout/)  [demo 1](https://www.crazygames.com/game/atari-breakout)
 - Space Invaders/Galaga
@@ -22,7 +22,7 @@ The first phase will be to work on this document.
 
 ## Phase 0: Selection, Analysis & Plan
 
-#### Selected Project: CHOOSE WISELY
+#### Selected Project: Conway's game of life
 
 ### Necessary Features
 What are the core features that your program should have? These should be things that __must__ be implemented in order to make the program useable/playable, not extra features that could be added to make the program more interesting/fun.
@@ -38,10 +38,10 @@ YOUR ANSWERS HERE
 How will you be using arrays in this project?
 
 1D Array:
-- YOUR ANSER HERE
+- I'm not entirely sure yet, so i'll think about this later. 
 
 2D Array:
-- YOUR ANSWER HERE
+- A 2D array is used to need to create all the individual organisms. In each cell there should be an object with a class of the organism. 
 
 
 ### Controls
