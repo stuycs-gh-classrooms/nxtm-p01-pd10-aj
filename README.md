@@ -80,14 +80,14 @@ What classes will you be creating for this project? Include the instance variabl
 
 CLASS Environment 
 - Instance variables:
-  -Organisms [][] grid;  
-  -int organismDensity; 
+  * Organisms [][] grid;  
+  * int organismDensity; 
 - METHODS:
   * constructor (int x, int y, density) // sets the size of the 2D array basedon x, y, and sets organismDensity to density
   * populate (organismDensity) //populates the 2d array based on organismDensity 
-   * overload both using this ()
+   - overload both using this ()
   * update () // tells each organism to update its next state based on its neighbors, then a separate loop to tell each organism to update its current state
-   * overload this, so that the rule set changes based on which update method you are using, which might requires putting in some parameter from the driver file 
+   - overload this, so that the rule set changes based on which update method you are using, which might requires putting in some parameter from the driver file 
   * display () // loops through the array telling each organism to display itself 
   * mouseupdate (int mousex, int mousey) // method to change the state of the organism that the mouse clicks to alive
 
