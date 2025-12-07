@@ -82,7 +82,7 @@ CLASS Environment
 - Instance variables:
   -2D array: Organisms [][] grid;  
   -int organismDensity; 
-- METHODS
+- METHODS:
   -constructor (int x, int y, density) // sets the size of the 2D array basedon x, y, and sets organismDensity to density
   -populate (organismDensity); //populates the 2d array based on organismDensity 
   -overload both using this ()
