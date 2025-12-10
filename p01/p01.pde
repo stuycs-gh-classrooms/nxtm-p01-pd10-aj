@@ -6,13 +6,32 @@ P01 -- Making cellular autonoma
 2025-12-09
 time spent: 
 */
-Environment E;
+Environment E; 
 
 int ALIVE = 1; 
 int DEAD = 0;
 
+int numRows = 60; 
+int numCols = 60;
+int density = 30; 
+
 void setup ()
 {
-  size (800, 800); 
-  E = new Environment (100, 100, 60);
+  size (600, 600); 
+  E = new Environment (numRows, numCols, density);
+  E.populate();
+
+}
+
+void draw()
+{
+  E.display ();
+}
+
+void keyPressed ()
+{
+  if (key == 'r')
+  {
+   E.update();
+  }
 }

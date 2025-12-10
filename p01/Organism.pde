@@ -13,41 +13,40 @@ class Organism
     corner = new PVector (x, y); // sets the corner of every object to the inputted x and y value of each corner
   }
 
- void display() {
+  void display() {
     if (currentState == ALIVE) {
-      fill(255);             // alive: white
+      fill(0, 255, 0);             // alive: green
     } else {
-      fill(0);               // dead: black
+      fill(255, 0, 0);               // dead: red
     }
 
     stroke(80);              // grid line color
-    rect(corner.x, corner.y, size, size);
+    square (corner.x, corner.y, size);
   }
-  
-  void updateNextState(int neighborCt) {
-    aliveNeighbors = neighborCt;
-    if (currentState == ALIVE)
+
+  void updateNextState() {
+    if (currentState == ALIVE) // by the rules if the organism is alive, and has 2 or 3 alive neighbors, then it remains alive 
     {
-    if (aliveNeighbors == 2 || aliveNeighbors ==3)
-    {
-      nextState = ALIVE;
-    }  
+      if (aliveNeighbors == 2 || aliveNeighbors == 3)
+      {
+        nextState = ALIVE;
+      } 
+      else // else the organism dies 
+      {
+        nextState = DEAD;
+      }
     }
-    
-    if (currentState == DEAD)
+    else if (currentState == DEAD) // by the rules if the organism dead, it only comes to life if has 3 alive neighbors 
     {
       if (aliveNeighbors == 3)
       {
-       nextState = ALIVE;
-      }
-    }
-    else {
-      nextState = DEAD;
-    }
-    
+        nextState = ALIVE;
+      } //otherwise it stays dead
+    } 
   }
-  
-  void changeState() {
+
+  void changeState() 
+  {
     currentState = nextState;
   }
 }
