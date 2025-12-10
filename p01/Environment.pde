@@ -1,24 +1,14 @@
 class Environment 
 {
-  //Organism [][] grid; 
+  Organism [][] grid; 
+  int organismDensity; 
+  int organismRow; // the height of each organism's cell 
+  int organismCols; // the width of each organim's cell 
   
-}
-
-/*
-int aliveNeighbors = neighborState;
-
-    if (currentState == ALIVE) {                 // currently alive
-      if (aliveNeighbors == 2 || aliveNeighbors == 3) {
-        nextState = 1;                       // stays alive
-      } else {
-        nextState = 0;                       // dies
-      }
-    } else {                                 // currently dead
-      if (aliveNeighbors == 3) {
-        nextState = 1;                       // becomes alive
-      } else {
-        nextState = 0;                       // stays dead
-      }
-    }
+  Environment (int numRows, int numCols, int OrganismDt)
+  {
+    organismRow = height / numRows; 
+    organismCols = width / numCols;
+    grid = new Organism [numRows][numCols];
   }
-*/
+}
