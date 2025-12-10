@@ -12,8 +12,37 @@ class Organism
     corner = new PVector (x, y); // sets the corner of every object to the inputted x and y value of each corner
   }
 
-  void display() {
-  //tell each object to display itelf
-  //an
+ void display() {
+    if (currentState == 1) {
+      fill(255);             // alive: white
+    } else {
+      fill(0);               // dead: black
+    }
+
+    stroke(80);              // grid line color
+    rect(corner.x, corner.y, size, size);
+  }
+  
+  void updateNextState(int neighborState) {
+    int aliveNeighbors = neighborState;
+
+    if (currentState == 1) {                 // currently alive
+      if (aliveNeighbors == 2 || aliveNeighbors == 3) {
+        nextState = 1;                       // stays alive
+      } else {
+        nextState = 0;                       // dies
+      }
+    } else {                                 // currently dead
+      if (aliveNeighbors == 3) {
+        nextState = 1;                       // becomes alive
+      } else {
+        nextState = 0;                       // stays dead
+      }
+    }
+  }
+
+
+  void changeState() {
+    currentState = nextState;
   }
 }
