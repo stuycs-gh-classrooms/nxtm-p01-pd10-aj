@@ -3,6 +3,7 @@ class Organism
   int currentState; //1 == alive, 0 == dead
   int nextState; //1 == alive, 0 == dead
   int size; // the size should be set to width/numCols
+  int neighborCount; // counts the neighbors 
   PVector corner; // used for display;
 
   Organism (int x, int y, int sz, int st)
@@ -13,7 +14,7 @@ class Organism
   }
 
  void display() {
-    if (currentState == 1) {
+    if (currentState == ALIVE) {
       fill(255);             // alive: white
     } else {
       fill(0);               // dead: black
@@ -23,25 +24,15 @@ class Organism
     rect(corner.x, corner.y, size, size);
   }
   
-  void updateNextState(int neighborState) {
-    int aliveNeighbors = neighborState;
-
-    if (currentState == 1) {                 // currently alive
-      if (aliveNeighbors == 2 || aliveNeighbors == 3) {
-        nextState = 1;                       // stays alive
-      } else {
-        nextState = 0;                       // dies
-      }
-    } else {                                 // currently dead
-      if (aliveNeighbors == 3) {
-        nextState = 1;                       // becomes alive
-      } else {
-        nextState = 0;                       // stays dead
-      }
+  void updateNextState(int neighborCt) {
+    if (nextST = ALIVE)
+    {
+      nextState = ALIVE;
     }
+    if (next
   }
-
-
+  
+    
   void changeState() {
     currentState = nextState;
   }
