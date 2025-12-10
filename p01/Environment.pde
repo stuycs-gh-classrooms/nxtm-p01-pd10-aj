@@ -15,17 +15,17 @@ class Environment
   
   void populate()
   {
-    for (int y  = 0; y < grid.length(); y++)
+    for (int y  = 0; y < grid.length; y++)
     {
-      for (int x = 0; x < grid[y].length(); x++) 
+      for (int x = 0; x < grid[y].length; x++) 
       { 
         int probability = int(random(0,101)); 
-        if (probabability <= organismDensity) 
+        if (probability <= organismDensity) 
         {
           int state = ALIVE; 
           
         }
-       grid[y][x] = new Organism(organismCol * x, organismRow * y, organismCol, state); 
+       grid[y][x] = new Organism(organismCols * x, organismRow * y, organismCols, state); 
       }
     }
     
