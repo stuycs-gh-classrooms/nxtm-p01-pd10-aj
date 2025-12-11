@@ -26,11 +26,19 @@ void setup ()
 void draw()
 {
   E.display ();
+  if (key == 'g')
+  {
+    E.update();
+  }
 }
 
 void keyPressed ()
 {
   if (key == 'r')
+  {
+    E.populate ();
+  }
+  if (key == ' ')
   {
    E.update();
   }
