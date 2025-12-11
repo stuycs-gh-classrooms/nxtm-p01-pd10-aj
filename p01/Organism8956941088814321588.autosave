@@ -44,26 +44,7 @@ class Organism
       } //otherwise it stays dead
     } 
   }
-  
-  void updateNextStateSeed ()
-  {
-    if (currentState == DEAD) 
-    {
-      if (aliveNeighbors == 2)
-      {
-        nextState = ALIVE;
-      }
-       else {
-      nextState = DEAD; 
-    }
-    }
-    else if (currentState == ALIVE)
-    {
-      nextState = DEAD;
-    }
-   
-}
-  
+ 
 
   void changeState() 
   {

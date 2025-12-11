@@ -13,7 +13,7 @@ int DEAD = 0;
 
 int numRows = 60; 
 int numCols = 60;
-int density = 30; 
+int density = 1;
 
 void setup ()
 {
@@ -44,6 +44,6 @@ void keyPressed ()
   }
   if (key == 's') 
   {
-    E.update();
+   E.updateSeed ();
   }
 }
