@@ -42,4 +42,8 @@ void keyPressed ()
   {
    E.update();
   }
+  if (key == 's') 
+  {
+    E.update();
+  }
 }

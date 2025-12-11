@@ -80,8 +80,15 @@ class Environment
         if (x > 0  && y < grid.length - 1 && grid [y+1][x-1].currentState == ALIVE) //checks the neighbor to bottom left, if it exists
         {
           grid [y][x].aliveNeighbors ++;
+        } 
+        if (key = ' ') 
+        {
+        grid[y][x].updateNextState ();   
+        } 
+        if (key = 's')
+        {
+         grid[y][x].updateNextState (7); 
         }
-        grid[y][x].updateNextState ();
       }
     }
 
