@@ -99,7 +99,11 @@ void update (int type)
       }
       if (type == Seed) 
       {
-      grid[y][x].updateNextState (1);
+      grid[y][x].updateNextState (Seed); // techncially you can just put it any integer, since we don't do anything
+      }
+      if (type == Unnamed)
+      {
+      grid[y][x].updateNextState ('a');
       }
     }
   }

@@ -59,6 +59,31 @@ class Organism
     }
   }
 
+  void updateNextState (char temp)
+  {
+    if (currentState == DEAD)
+    {
+      if (aliveNeighbors == 2 || aliveNeighbors == 5)
+      {
+        nextState = ALIVE; 
+      }
+      else 
+      {
+        nextState = DEAD; 
+      }
+    }
+    else if (currentState == ALIVE)
+    {
+      if (aliveNeighbors == 4)
+      {
+        nextState = ALIVE;
+      }
+      else 
+      {
+        nextState = DEAD;
+      }
+    }
+  }
 
   void changeState()
   {

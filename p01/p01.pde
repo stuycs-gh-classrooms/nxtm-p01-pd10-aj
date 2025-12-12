@@ -12,7 +12,7 @@ int ALIVE = 1;
 int DEAD = 0;
 int Conway = 2; 
 int Seed = 3; 
-int unknown = 4;
+int Unnamed = 4;
 
 int numRows = 60; 
 int numCols = 60;
@@ -47,6 +47,10 @@ void keyPressed ()
   if (key == 's') 
   {
    E.update (Seed); // uses the seed rule set 
+  }
+  if (key == 'u')
+  {
+   E.update (Unnamed);
   }
   if (key == 'w')
   {
