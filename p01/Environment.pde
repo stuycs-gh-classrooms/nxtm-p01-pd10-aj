@@ -1,0 +1,130 @@
+class Environment
+{
+  Organism [][] grid;
+  int organismDensity;
+  int organismRow; // the height of each organism's cell
+  int organismCols; // the width of each organim's cell
+  int stepCount; // to count the number of steps that have occured
+  Environment (int numRows, int numCols, int OrganismDt)
+  {
+    stepCount =0;
+    organismDensity = OrganismDt;
+    organismRow = height / numRows;
+    organismCols = width / numCols;
+    grid = new Organism [numRows][numCols];
+  }
+
+  void populate()
+  {
+    for (int y  = 0; y < grid.length; y++)
+    {
+      for (int x = 0; x < grid[y].length; x++)
+      {
+        int probability = int(random(0, 101));
+        if (probability <= organismDensity)
+        {
+          grid[y][x] = new Organism(organismCols * x, organismRow * y, organismCols, ALIVE);
+        } else
+        {
+          grid[y][x] = new Organism(organismCols * x, organismRow * y, organismCols, DEAD);
+        }
+      }
+    }
+  }
+
+  void populate (int tempvaraible)
+  {
+    for (int y  = 0; y < grid.length; y++)
+    {
+      for (int x = 0; x < grid[y].length; x++)
+      {
+        grid [y][x] = new Organism (organismCols * x, organismRow * y, organismCols, DEAD);
+      }
+    }
+  }
+
+
+void display ()
+{
+  for (int y = 0; y < grid.length; y++)
+  {
+    for (int x = 0; x < grid[y].length; x ++)
+    {
+      grid[y][x].display();
+    }
+  }
+  fill (255); 
+  textSize (25);
+  text (stepCount, 20, 20); // displays the stepCount 
+}
+
+void update (int type)
+{
+  for (int y = 0; y < grid.length; y++)
+  {
+    for (int x = 0; x < grid[y].length; x ++)
+    {
+      grid[y][x].aliveNeighbors = 0;
+      if (x > 0 && grid[y][x-1].currentState == ALIVE) // checks the left neighbor, if it exists
+      {
+        grid[y][x].aliveNeighbors ++;
+      }
+      if (x < (grid[y].length - 1) && grid[y][x+1].currentState == ALIVE) // checks the neighbor to the right, if it exists
+      {
+        grid[y][x].aliveNeighbors ++;
+      }
+      if (y > 0 && grid[y-1][x].currentState == ALIVE) //checks the neighbor to the top, if it exists
+      {
+        grid [y][x].aliveNeighbors ++;
+      }
+      if (y < grid.length -1 && grid[y+1][x].currentState == ALIVE) //checks the neighbor to the bottom, if it exists
+      {
+        grid [y][x].aliveNeighbors ++;
+      }
+      if (x > 0 && y > 0 && grid [y-1][x-1].currentState == ALIVE) //checks the neighbor to top left, if it exists
+      {
+        grid [y][x].aliveNeighbors ++;
+      }
+      if (x < grid[y].length - 1 && y > 0 && grid [y-1][x+1].currentState == ALIVE) //checks the neighbor to top right, if it exists
+      {
+        grid [y][x].aliveNeighbors ++;
+      }
+      if (x < grid[y].length - 1 && y < grid.length - 1 && grid [y+1][x+1].currentState == ALIVE) //checks the neighbor to bottom right, if it exists
+      {
+        grid [y][x].aliveNeighbors ++;
+      }
+      if (x > 0  && y < grid.length - 1 && grid [y+1][x-1].currentState == ALIVE) //checks the neighbor to bottom left, if it exists
+      {
+        grid [y][x].aliveNeighbors ++;
+      }
+      if (type == Conway)
+      {
+      grid[y][x].updateNextState ();
+      }
+      if (type == Seed) 
+      {
+      grid[y][x].updateNextState (Seed); // techncially you can just put it any integer, since we don't do anything
+      }
+      if (type == Unnamed)
+      {
+      grid[y][x].updateNextState ('a');
+      }
+    }
+  }
+
+  for (int y = 0; y < grid.length; y++) // must keep this separate so you don't update the state too early
+  {
+    for (int x = 0; x < grid[y].length; x ++)
+    {
+      grid[y][x].changeState();
+    }
+  }
+  stepCount ++;
+}
+
+
+void mousePopulate (int mousex, int mousey)
+{
+  grid[int (mousey / organismRow)][int (mousex/organismCols)].currentState = ALIVE;
+}
+}
