@@ -4,9 +4,10 @@ class Environment
   int organismDensity;
   int organismRow; // the height of each organism's cell
   int organismCols; // the width of each organim's cell
-
+  int stepCount; // to count the number of steps that have occured
   Environment (int numRows, int numCols, int OrganismDt)
   {
+    stepCount =0;
     organismDensity = OrganismDt;
     organismRow = height / numRows;
     organismCols = width / numCols;
@@ -52,6 +53,9 @@ void display ()
       grid[y][x].display();
     }
   }
+  fill (255); 
+  textSize (25);
+  text (stepCount, 20, 20); // displays the stepCount 
 }
 
 void update (int type)
@@ -115,6 +119,7 @@ void update (int type)
       grid[y][x].changeState();
     }
   }
+  stepCount ++;
 }
 
 

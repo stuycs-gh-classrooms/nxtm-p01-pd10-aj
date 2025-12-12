@@ -19,8 +19,7 @@ class Organism
     } else {
       fill(255, 0, 0);               // dead: red
     }
-
-    stroke(80);              // grid line color
+    strokeWeight (0);
     square (corner.x, corner.y, size);
   }
 

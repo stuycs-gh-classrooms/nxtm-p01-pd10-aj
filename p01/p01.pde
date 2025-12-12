@@ -8,11 +8,11 @@ time spent:
 */
 Environment E; 
 
-int ALIVE = 1; 
-int DEAD = 0;
-int Conway = 2; 
-int Seed = 3; 
-int Unnamed = 4;
+int ALIVE = 1; //State of living
+int DEAD = 0; //State of living
+int Conway = 2; //Conway rule set
+int Seed = 3; // Seed rule set
+int Unnamed = 4; // Unamed rule set
 
 int numRows = 60; 
 int numCols = 60;
@@ -20,6 +20,7 @@ int density = 10;
 
 void setup ()
 {
+  frameRate (60);
   size (600, 600); 
   E = new Environment (numRows, numCols, density);
   E.populate();
@@ -30,7 +31,10 @@ void draw()
   E.display ();
   if (key == 'g')
   {
+    if (frameCount % 60 == 0) // to slow down the infinite runs, because every frame is too fast
+    {
     E.update(Conway); //would infinitelyrun Conway's game of life rule set, but this can be changed manually 
+    }
   }
 }
 
@@ -54,8 +58,9 @@ void keyPressed ()
   }
   if (key == 'w')
   {
-    E.populate (DEAD);  // the method in actually doens't do anything with seed, we just use the paramater as a way to tell between the overloaded methods
+    E.populate (DEAD); // the method in actually doens't do anything with seed, we just use the paramater as a way to tell between the overloaded methods
     //so technically you can put any integer and it works 
+    E.stepCount = 0; //resets the stepcount 
   }
 }
 
