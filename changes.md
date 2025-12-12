@@ -33,5 +33,6 @@ CLASS Organism.
 
 
 # Updated Changes 
- * It turns out that we will not be overloading any constructors. It's simple just to create two separate functions.
+ * It turns out that we will not be overloading any constructors. It's simpler to create two separate functions instead of overloading one. 
  * For our Organism class, we had to create a new int attribute called aliveNeighbors, which keeps track of how many alive neighbors each organism has. 
+
