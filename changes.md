@@ -34,6 +34,8 @@ CLASS Organism.
 
 # Updated Changes 
  * For our Organism class, we had to create a new int attribute called aliveNeighbors, which keeps track of how many alive neighbors each organism has.
- * For overloading our functions, we abused how procesing uses paramaters to determinate between overloaded methods. So we used inputs that didn't do anything that had diff variable types. 
+ * For overloading our functions, we abused how procesing uses paramaters to determinate between overloaded methods. So we used inputs that didn't do anything that had diff variable types.
+ * We also created a new attribute in our environment class to count the number of steps in the simulation and siplay it. 
+
 
 
