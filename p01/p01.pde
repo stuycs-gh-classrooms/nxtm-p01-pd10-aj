@@ -47,3 +47,8 @@ void keyPressed ()
    E.updateSeed ();
   }
 }
+
+void mousePressed ()
+{
+  
+}
