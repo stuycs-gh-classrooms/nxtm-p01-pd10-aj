@@ -25,47 +25,42 @@ class Organism
   }
 
   void updateNextState() {
-    if (currentState == ALIVE) // by the rules if the organism is alive, and has 2 or 3 alive neighbors, then it remains alive 
+    if (currentState == ALIVE) // by the rules if the organism is alive, and has 2 or 3 alive neighbors, then it remains alive
     {
       if (aliveNeighbors == 2 || aliveNeighbors == 3)
       {
         nextState = ALIVE;
-      } 
-      else // else the organism dies 
+      } else // else the organism dies
       {
         nextState = DEAD;
       }
-    }
-    else if (currentState == DEAD) // by the rules if the organism dead, it only comes to life if has 3 alive neighbors 
+    } else if (currentState == DEAD) // by the rules if the organism dead, it only comes to life if has 3 alive neighbors
     {
       if (aliveNeighbors == 3)
       {
         nextState = ALIVE;
       } //otherwise it stays dead
-    } 
+    }
   }
-  
-  void updateNextStateSeed ()
+
+  void updateNextState (int temp)
   {
-    if (currentState == DEAD) 
+    if (currentState == DEAD)
     {
       if (aliveNeighbors == 2)
       {
         nextState = ALIVE;
+      } else {
+        nextState = DEAD;
       }
-       else {
-      nextState = DEAD; 
-    }
-    }
-    else if (currentState == ALIVE)
+    } else if (currentState == ALIVE)
     {
       nextState = DEAD;
     }
-   
-}
-  
+  }
 
-  void changeState() 
+
+  void changeState()
   {
     currentState = nextState;
   }
