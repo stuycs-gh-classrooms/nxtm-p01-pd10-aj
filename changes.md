@@ -31,3 +31,7 @@ CLASS Organism.
   - void updateNextState (int neighborState) // updates the organisms next state based on its neighbor 
   - void changestate () // changes its current state to nextstate 
 
+
+# Updated Changes 
+ * It turns out that we will not be overloading any constructors. It's simple just to create two separate functions.
+ * For our Organism class, we had to create a new int attribute called aliveNeighbors, which keeps track of how many alive neighbors each organism has. 
